@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Product </title>
+    <link href="../static/css/bootstrap.css"
+          th:href="@{css/bootstrap.css}" rel="stylesheet" media="screen"/>
+
+</head>
+<body>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+
+        <h1>Produkty</h1>
+
+
+        <div th:each="product :${productList}">
+
+            <table class="table table-striped">
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>#Id</th>-->
+                    <!--<th>Name</th>-->
+                    <!--<th>Price</th>-->
+                    <!--<th>Weight</th>-->
+                    <!--<th>Koszyk</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <tbody>
+                <tr>
+
+                    <th th:text="${product.id}" scope="col">Id</th>
+                    <th th:text="${product.name}" scope="col">Name</th>
+                    <th th:text="${product.price}" scope="col">Price</th>
+                    <th th:text="${product.weight}" scope="col">Weight</th>
+                    <th><a th:href="@{/product(id=${product.id})}" role="button" scope="col" th:type="submit"
+                           class="btn btn-warning">Dodaj do koszyka</a></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="/map" class="btn btn-primary" role="button" aria-pressed="true">Menu dodawania produktów</a>
+
+    </div>
+    <div class="col-2"></div>
+</div>
+
+</body>
+</html>
